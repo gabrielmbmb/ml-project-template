@@ -1,0 +1,75 @@
+# ML Project Configuration
+
+project:
+  name: ml-project-template
+  version: 0.1.0
+  author: Gabriel Martín Blázquez
+
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  interim_dir: data/interim
+  external_dir: data/external
+  
+  # Data processing parameters
+  test_size: 0.2
+  validation_size: 0.1
+  random_seed: 42
+  
+features:
+  # Feature engineering parameters
+  scaling: standard  # Options: standard, minmax, robust
+  encoding: onehot   # Options: onehot, label, target
+  handle_missing: mean  # Options: mean, median, drop, fillna
+  
+model:
+  type: random_forest  # Options: random_forest, xgboost, lightgbm, neural_network
+  
+  # Model hyperparameters
+  hyperparameters:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 2
+    min_samples_leaf: 1
+    random_state: 42
+  
+  # Model output
+  save_dir: models
+  model_name: best_model.pkl
+  
+training:
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: adam
+  early_stopping: true
+  patience: 10
+  
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1_score
+    - roc_auc
+  
+  cross_validation:
+    enabled: true
+    n_folds: 5
+    
+experiment_tracking:
+  enabled: true
+  backend: mlflow  # Options: mlflow, wandb, tensorboard
+  
+  mlflow:
+    tracking_uri: ./mlruns
+    experiment_name: ml-project-experiment
+  
+  wandb:
+    project: ml-project-template
+    entity: your-username
+    
+logging:
+  level: INFO  # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: logs/app.log

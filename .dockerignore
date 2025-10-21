@@ -1,0 +1,50 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.pytest_cache
+.mypy_cache
+.coverage
+htmlcov
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Data files
+data/raw/*
+data/processed/*
+data/interim/*
+data/external/*
+
+# Models
+models/*
+checkpoints/
+
+# Logs and experiments
+logs/
+mlruns/
+wandb/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+
+# Documentation
+docs/_build/
+
+# Notebooks
+.ipynb_checkpoints
+
+# Environment
+.env
